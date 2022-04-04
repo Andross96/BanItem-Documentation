@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="keywords" content="minecraft,ban,item,banitem,doc,documentation,spigot,bukkit,paper,plugin,plugins,andross" />
+		<meta name="description" content="Lightweight, powerful and configurable per world ban item plugin" />
+		<meta name="author" content="Andross" />
+		<title>BanItem - Documentation</title>
+		<link href="./styles/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="./styles/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<link href="./styles/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+		<link href="./styles/css/styles.min.css" rel="stylesheet" type="text/css" />
+		<link rel="icon" type="image/png" href="favicon.png" />
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="sideNav">
+			<a class="navbar-brand" href="https://banitem.andross.fr/">
+				<span class="d-block d-lg-none">BanItem</span>
+				<span class="d-none d-lg-block">
+					<img class="img-fluid" src="./styles/images/banitem.png" alt="" style="margin-left:27px" />
+				</span>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navigation">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html"><i class="fa fa-home">&nbsp;</i>Home</a>
+					</li>
+					<li class="nav-item selected">
+						<a class="nav-link"><i class="fa fa-info-circle">&nbsp;</i>Documentation</a>
+						<ul class="child">
+							<li class="nav-item"><a href="#config">Configuration</a></li>
+							<li class="nav-item"><a href="#permissions">Permissions</a></li>
+							<li class="nav-item"><a href="#commands">Commands</a></li>
+							<li class="nav-item"><a href="#infos">General informations</a></li>
+							<li class="nav-item"><a href="#actions">Actions</a></li>
+							<li class="nav-item"><a href="#actions-data">Actions data</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html"><i class="fa fa-info-circle">&nbsp;</i>Contact</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid p-0">
+			<section class="p-3 p-lg-5 d-flex align-items-center">
+				<div class="w-100">
+					<h2>Documentation</h2><br />
+					<i>Last update: 17.10.2021</i>
+					<hr class="m-0" />
+					<div id="config">
+						<h3>Config.yml</h3><b>Click on a variable to get more info</b><br />
+							<i>Any variables are actional, if not set, default will be used.</i><br /><br />
+<div style="width:500px;background:#F2F3F3;margin-left:auto;margin-right:auto;overflow:auto;padding:.3em .8em;box-shadow: 0px 0px .6rem 0px rgba(0,0,0,0.75);">
+<pre style="text-align:left; line-height: 150%; ">
+<span style="color: #008800; font-style: italic"># +———————————————————————————————————————————————————+ #</span>
+<span style="color: #008800; font-style: italic"># |——————————     BANITEM CONFIGURATION     ——————————| #</span>
+<span style="color: #008800; font-style: italic"># |——————————————————      v3.3      —————————————————| #</span>
+<span style="color: #008800; font-style: italic"># +———————————————————————————————————————————————————+ #</span>
+<span style="color: #008800; font-style: italic"># |                   Documentation:                  | #</span>
+<span style="color: #008800; font-style: italic"># |             https://banitem.andross.fr/           | #</span>
+<span style="color: #008800; font-style: italic"># +———————————————————————————————————————————————————+ #</span>
+<a class="info" onclick="dialog('better-debug', '#config');"><span style="color:#000080">debug:</span>
+  <span style="color:#000080">errors:</span> <span style="color:#0000FF">true</span>
+  <span style="color:#000080">reload:</span> <span style="color:#0000FF">false</span>
+  <span style="color:#000080">colors-console:</span> <span style="color:#0000FF">false</span></a>
+<a class="info" onclick="dialog('no-permission', '#config');"><span style="color:#000080">no-permission:</span></a> '&cYou do not have permission.'
+<a class="info" onclick="dialog('prefix', '#config');"><span style="color:#000080">prefix:</span></a> '&c&l[&e&lBanItem&c&l] '
+<a class="info" onclick="dialog('api', '#config');"><span style="color:#000080">api:</span>
+  <span style="color:#000080">playerbanitemevent:</span> <span style="color:#0000FF">false</span>
+  <span style="color:#000080">deletebanneditemevent:</span> <span style="color:#0000FF">false</span></a> 
+<a class="info" onclick="dialog('check-update', '#config');"><span style="color:#000080">check-update:</span></a> <span style="color:#0000FF">true</span>
+<a class="info" onclick="dialog('priority', '#config');"><span style="color:#000080">priority:</span></a> 'use,consume'
+<a class="info" onclick="dialog('config-actions', '#config');"><span style="color:#000080">actions:</span>
+  <span style="color:#000080">enchant:</span>
+    material: BARRIER
+    displayname: '&cBANNED'
+    lore:
+      - '&cYou can not add this'
+      - '&cenchantement.'
+  <span style="color:#000080">rename:</span>
+    - '/rename'
+  <span style="color:#000080">transfer:</span>
+    <span style="color:#000080">hoppers-block:</span> <span style="color:#0000FF">false</span>
+  <span style="color:#000080">wear:</span>
+    <span style="color:#000080">region-check:</span> <span style="color:#0000FF">false</span>
+	<span style="color:#000080">scanner:</span> <span style="color:#0000FF">true</span>
+  <span style="color:#000080">delete:</span>
+    ignored-inventories-titles:
+      - 'My Cool Gui'
+      - 'Shop'</a>
+<a class="info" onclick="dialog('hooks', '#config');"><span style="color:#000080">hooks:</span>
+  <span style="color:#000080">advancedenchantments:</span> <span style="color:#0000FF">false</span>
+  <span style="color:#000080">itemsadder:</span> <span style="color:#0000FF">false</span>
+  <span style="color:#000080">worldguard:</span> <span style="color:#0000FF">false</span></a>
+</pre>
+</div>
+					</div>
+					<hr class="m-3" />
+					<div id="permissions">
+						<h3>Permissions</h3><i>All permissions are for <b>op</b> by default.</i>
+						<ul class="list-group">
+							<li class="list-group-item"><b>Bypass permission:</b> <quote>banitem.bypass.&lt;worldName&gt;.&lt;itemName&gt;.&lt;actionName&gt;.&lt;dataName&gt;</quote><br />
+									- <b>worldName</b>: name of the world, or <b>allworlds</b> <i>(e.g: world)</i><br />
+									- <b>itemName</b>: material or custom/meta item name or <b>allitems</b> <i>(e.g: stone)</i><br />
+									- <b>actionName</b>: <a href="#actions">action</a> name or <b>*</b> <i>(e.g: place)</i><br />
+									- <b>dataName</b>: name of the ban action data, or '*' to include them all <i>(e.g: entity)</i><br />
+									- Example: <i>banitem.bypass.allworlds.diamond_block.place.*</i></li>
+							<li class="list-group-item"><b>Commands permissions:</b> <quote>banitem.command.&lt;name&gt;</quote><br />
+								- Names: add, addeverywhere, check, help, info, load, log, metaitem, reload, remove.<br />
+								- Example: <i>banitem.command.help</i><br />
+								<b>N.B</b>: you'll need the help permission to display the command help and use the tab completer.
+							</li>
+						</ul>
+					</div>
+					<hr class="m-3" />
+					<div id="commands">
+						<h3>Commands</h3>
+						<ul class="list-group">
+							<i>All commands can be shortened /bi</i>
+							<li class="list-group-item"><quote>/banitem add <b>&lt;action&gt; [-m materials] [-w worlds] [message]</b></quote><br />
+								<b>Description:</b> ban the current item in your hand <i>(does not include metadata)</i> for the current world;<br />
+								You can set multiples materials or multiples worlds.<br />
+								Example, with a diamond block in the hand: <br />
+								<quote>/bi add place,break &cYou can not place or break this.</quote><br />
+									-> Diamond block can not be placed or breaked anymore in the current world.<br />
+								<i>Bypass permission: banitem.bypass.worldName.diamond_block.place.*</i><br /><br />
+								
+								Example from console:<br />
+									<quote>/bi add place -m stone -w world</quote><br />
+									-> Stone can not be placed into 'world'.<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem check <b>[delete]</b></quote><br />
+								<b>Description:</b> will give a list of all players which inventories contains a blacklisted item <i>(respects the worlds)</i>.<br />
+								Use the <i>delete</i> argument to also delete those items.<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem help <b>[type]</b></quote><br />
+								<b>Description:</b> will give you additional informations about the type entered;<br />
+								<b>Type:</b> worlds, actions, entities, gamemodes, inventories, enchantments, potions.<br />
+								Example: <br /><br />
+								<quote>/bi help gamemodes</quote><br />
+									-> List of available gamemodes: creative,survival,adventure,spectator<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem info [debug]</quote><br />
+								<b>Description:</b> to get information about the current item in your hand <i>(for example the material name to put in config.yml)</i><br />
+								If you enter /bi info debug, a complete detailled debug will be displayed about the item into your hand.<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem load <b>&lt;file&gt;</b></quote><br />
+								<b>Description:</b> will load the configuration in the <i>file</i>.<br />
+								The file has to be into the BanItem plugin folder.<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem log</quote><br />
+								<b>Description:</b> will activate the log mode. Players with log mode activated will receive a message in game for all banned items with data 'log: true';<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem metaitem add <b>&lt;name&gt; [action] [message]</b></quote><br />
+								<b>Description:</b> to ban the current item in your hand <i>(includes metadata)</i> for the current world.<br />
+								Entering no actions will only save the meta item.<br />
+								If a previous meta item with the same name already exists, it will be overridden.<br />
+								<i>The command can be shortened /bi mi.</i><br />
+								
+								Example, with a sword in the hand: <br /><br />
+								<quote>/bi mi add mySword attack,drop &cYou can not attack with this item.</quote><br />
+									-> Can not attack with this sword or drop it in the current world.<br />
+								<i>Bypass permission: banitem.bypass.worldName.mySword.attack.*</i>
+							</li>
+							<li class="list-group-item"><quote>/banitem metaitem get <b>&lt;name&gt;</b></quote><br />
+								<b>Description:</b> will give you the meta item into your inventory;<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem metaitem list</quote><br />
+								<b>Description:</b> will give a list of all meta items (by name);<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem metaitem remove <b>&lt;name&gt;</b></quote><br />
+								<b>Description:</b> to remove the meta item;<br />
+							</li>
+							<li class="list-group-item"><quote>/banitem reload</quote><br />
+								<b>Description:</b> reload everything <i>(config, custom/meta items, blacklist, whitelist...)</i><br />
+								<i>The command can be shortened /bi rl.</i><br />
+							</li>
+							<li class="list-group-item"><quote>/banitem remove <b>[-m materials] [-w worlds]</b></quote><br />
+								<b>Description:</b> remove & unban the current item in your hand.</i><br />
+								You can use the command from console and specifiy the materials and worlds.<br />
+							</li>
+						</ul>
+					</div>
+					<hr class="m-3" />
+					<div id="infos">
+						<h3>General informations</h3>
+						<li class="list-group-item" id="items"><h4>Items:</h4>
+							<b>The items bannable are:</b>
+							<ul class="list-group">
+								<li class="list-group-item"><a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html" target="_blank">Material</a><br />
+								<i>The material item, does not include metadata.</i></li>
+								<li class="list-group-item"><a href="#meta-items">Meta items</a><br />
+								<i>The item, including all/exact metadata (displayname, lore, enchants, durability etc.)</i></li>
+								<li class="list-group-item"><a href="#custom-items">Custom items</a><br />
+								<i>Customizable item with customizable metadata.</i></li>
+							</ul>
+							You can easily get the material name by using <i>/banitem info</i> with the item in your hand.
+						</li>
+						<li class="list-group-item"><h4>Blacklist:</h4>
+							The blacklist contains list of <b>blocked</b> items. Default example synthax:
+<textarea class="form-control" rows="5" readonly>
+blacklist:
+  world: # the world name where the ban should apply
+    diamond: # the item/material name
+      drop: '&cYou can not drop diamonds in world.' # the action banned and a custom message
+      pickup: '&cYou can not pick up diamonds in world.' # another action</textarea>
+						<i><u>Result:</u> players can not drop or pickup diamonds in the world 'world'.</i><br />
+						<i><u>Bypass permission example:</u> banitem.bypass.world.diamond.drop.*</i>
+						</li>
+						<li class="list-group-item"><h4>Whitelist:</h4>
+							The whitelist contains list of <b>allowed</b> items only. Default example synthax:
+<textarea class="form-control" rows="5" readonly>
+whitelist:
+  world_the_end: # the world name
+    message: '&cOnly thing allowed in this world: placing dirt.' # actional message
+    ignored: 'interact' # we ignore the interact, so player can interact (to place) with everything
+    dirt: place # dirt can be placed</textarea>
+						<i><u>Result:</u> in the world_the_end, players will only can place dirt.</i><br />
+						<i><u>Bypass permission example:</u> banitem.bypass.world_the_end.stone.place.*</i>
+						</li>
+						<li class="list-group-item" id="meta-items"><h4>Meta items:</h4>
+							A meta item is an item with its metadata <i>(including durability, enchants, displayname etc.)</i>, saved into the <u>metaitems.yml</u> file.<br />
+							It's used by the plugin to recognize items with the exact same metadata <i>(like a potion, a banner, a book, a spawn egg etc.)</i><br />
+							You can use <i>/banitem metaitem</i> to add/get/remove/list meta items.
+						</li>
+						<li class="list-group-item" id="custom-items"><h4>Custom items:</h4>
+							A custom item is an item which contains configurable/customizable metadata, so the plugin can recognize different metadata on a same item.<br />
+							This will require to manually modify the config.yml & customitems.yml files.<br />
+							<div id="menu">
+								<ul class="list-group">
+									<a id="action"><li class="list-group-item" id="customitems-info"><h4>More informations</h4>How to & list of metadata</a>
+										<ul class="list-group" style="display:none;">
+											<a id="action"><li class="list-group-item" id="customitems-info-howto"><h4>How to</h4>Create & ban a custom item</i></a>
+												<ul class="list-group" style="display:none;">
+													There is only 2 steps: first, create the custom item in <i>customitems.yml</i>, then ban it into the <i>config.yml.</i><br />
+													You <b>must</b> enter the material name of the item. You can write the materials like <a href="#format-items">this</a>.
+													<li class="list-group-item">
+														<b>Example of custom item creation in customitems.yml</b>:<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: DIAMOND_SWORD # material of the item
+  enchantment-contains: 'unbreaking' # any metadata (listed below)</textarea>
+														Now, we can ban the item in the config.yml: <br />
+														<b>Example of ban in config.yml</b>
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    customItemName:
+	  attack: '&cYou can not attack with a diamond sword which has unbreaking.'</textarea>
+	  <i>Result: player can not attack with a diamond sword which has unbreaking!</i><br />
+													</li>
+												</ul>
+											</li>
+											<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>Metadata</h4>List of metadata configurable</a>
+												<ul class="list-group" style="display:none;">
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>displayname-equals</h4>If the displayname of the item is equals to the String</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item display name should be equals to 'test'":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond # whatever
+  displayname-equals: 'test'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>displayname-contains</h4>If the displayname of the item contains the String</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item display name should contains 'test'":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond # whatever
+  displayname-contains: 'test'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>lore-equals</h4>If the lore of the item is exactly equal to the lore written</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item lore should be equals to this":<br />
+<textarea class="form-control" rows="4" readonly>
+customItemName:
+  material: diamond # whatever
+  lore-equals:
+    - 'Lore line 1'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>lore-contains</h4>If any line in the lore of the item contains any line of the string/list written</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item lore should contains this lore":<br />
+<textarea class="form-control" rows="4" readonly>
+customItemName:
+  material: diamond # whatever
+  lore-contains:
+    - 'Any text'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>lore-contains-regex</h4>If any line in the lore of the item matches the regex pattern written</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item lore should contains 'Damage +X', with x between 1 and 9":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond # whatever
+  lore-contains-regex: 'Damage \+[1-9]'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>lore-line-contains</h4>If any line in the lore of the item contains the string written</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item lore should contains a line with this text":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond # whatever
+  lore-line-contains: Any text</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>durability</h4>If the durability of the item matches</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">You can use '<i>durability: 1</i>': to match durability 1</li>
+		<li class="list-group-item">You can use '<i>durability: 0-300</i>': to match durability between 0 and 300</li>
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+		"The item should have 15 durability":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond_sword # whatever
+  durability: 15</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>enchantment-equals</h4>If the enchantments of the item matches exactly the ones written</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">The synthax is '<i>Enchantment:Level</i>'</li>
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item should have exactly durability level 3 and efficiency 5":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond_sword # whatever
+  enchantment-equals: 'unbreaking:3,efficiency:5'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>enchantment-contains</h4>If the item contains one of the written enchantments</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">You can use '<i>Enchantment</i>': if the item contains this enchantment, no matter the level</li>
+		<li class="list-group-item">You can use '<i>Enchantment:Level</i>': if the item contains this enchantment with the written level</li>
+		<li class="list-group-item">You can use '<i>Enchantment:MinLevel:MaxLevel</i>': if the item contains this enchantment with the level included between MinLevel and MaxLevel</li>
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item should have unbreaking on it, no matter the level":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond_sword # whatever
+  enchantment-contains: 'unbreaking'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>potion</h4>If the item contains one of the written potion effect</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">You can use '<i>Potion</i>': if the item contains this potion, no matter the level</li>
+		<li class="list-group-item">You can use '<i>Potion:Level</i>': if the item contains this potion with the written level</li>
+		<li class="list-group-item">You can use '<i>Potion:MinLevel:MaxLevel</i>': if the item contains this potion with the level included between MinLevel and MaxLevel</li>
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item should have speed 2 on it":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: potion
+  potion: 'speed:2'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>unbreakable</h4>If the item is unbreakable</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item should be unbreakable":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond_sword # whatever
+  unbreakable: true</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>modeldata-equals</h4>If the item modeldata is equals to the one written <b>(for MC>=1.14)</b></a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item should have a modeldata equals to 5":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond # whatever
+  modeldata-equals: 5</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>advancedenchantments</h4>If the item contains a custom enchantment.</a>
+	<ul class="list-group" style="display:none;">
+	<li class="list-group-item">Using <a href="https://www.spigotmc.org/resources/%E2%9C%A8-advancedenchantments-%E2%9A%94%EF%B8%8F-create-custom-enchants-armor-sets-%E2%9C%A8-152-enchantments.43058/" target="_blank">AdvancedEnchantments</a>, you can match custom enchantments.<br />
+	They can be written respecting the same synthax as <i>enchantment-contains</i> explained above.<br /></li>
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item should have my custom enchantment 'test'":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond # whatever
+  advancedenchantments: 'customenchant:2'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>itemsadder</h4>If the item is a custom item from ItemsAdder.</a>
+	<ul class="list-group" style="display:none;">
+	<li class="list-group-item">Using <a href="https://www.spigotmc.org/resources/%E2%9C%85must-have%E2%9C%85-itemsadder%E2%9C%A8custom-items-huds-guis-mobs-3dmodels-emojis-blocks-wings-hats-liquids.73355/" target="_blank">ItemsAdder</a>, you can match custom items.<br /></li>
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item should be my custom item 'test'":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond # whatever
+  itemsadder: 'test'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>nbtapi</h4>If the item NBT matches</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			Using <a href="https://www.spigotmc.org/resources/nbt-api.7939/" target="_blank">NBTAPI</a>, you can match custom NBT.<br />
+			You have to write the complete path of the NBT tag, separated with #.
+		</li>
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"{EntityTag:{id:"minecraft:zombie"}}":<br />
+<textarea class="form-control" rows="2" readonly>
+nbtapi:
+  'EntityTag#id': 'minecraft:zombie'</textarea><br />
+You can match multiple values:
+<textarea class="form-control" rows="4" readonly>
+nbtapi:
+  'EntityTag#id':
+    1: 'minecraft:zombie'
+    2: 'minecraft:pig'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="list-group-item"><h4>Actions & Actions datas:</h4>
+							An <a href="#actions">action</a> is an ingame action that will be banned/blocked by the plugin.<br />
+							Each actions can store <a href="#actions-data">actions data</a>, which contains additional ban checks, like the player gamemodes, if it's in cooldown, if the action should be logged etc.
+						</li>
+						<li class="list-group-item" id="format"><h4>Formats:</h4>
+							Almost all variables in the config file can be shortened & compressed. There are also 'include all' <i>(*)</i> & 'exlude' <i>(!)</i> operators.<br />
+							You can use regex names for items names & world names, adding "#" at the beginning of the string.<br />
+							<u>The plugin does not support spaces into the world names!</u><br /><br />
+							<b id="format-worlds">Worlds can be written:</b>
+							<ul class="list-group">
+								<li class="list-group-item">-> Single: <quote>'world'</quote>,<quote>'world_the_end'</quote></li>
+								<li class="list-group-item">-> Multiple: <quote>'world,world_the_end'</quote>,<quote>'world,test,anotherone'</quote></li>
+								<li class="list-group-item">-> Include all worlds: <quote>'*'</quote></li>
+								<li class="list-group-item">-> All except: <quote>'*, !world, !world_the_end'</quote><i>-> all worlds, except 'world' and 'world_the_end'</i></li>
+								<li class="list-group-item">-> Regex: <quote>'#(?i)world'</quote><i>-> world, world_nether, world_the_end</i></li>
+							</ul>
+							<hr />
+							<b><a href="#items" id="format-items">Items</a> can be written:</b>
+							<ul class="list-group">
+								<li class="list-group-item">-> Single: <quote>'stone'</quote>,<quote>'dirt'</quote></li>
+								<li class="list-group-item">-> Multiple: <quote>'stone,dirt'</quote>,<quote>'stone,dirt,diamond_block'</quote></li>
+								<li class="list-group-item">-> All: <quote>'*'</quote> <i>-> also include air (= empty hand)</i></li>
+								<li class="list-group-item">-> All except: <quote>'*, !stone, !dirt'</quote><i>-> all, except 'stone' and 'dirt'</i></li>
+								<li class="list-group-item">-> Regex: <quote>'#(?i)_bed'</quote><i>-> will match all bed items</i></li>
+							</ul>
+							<hr />
+							<b><a href="#actions" id="format-actions">Actions</a> can be written:</b>
+							<ul class="list-group">
+								<li class="list-group-item">-> Single: <quote>'place'</quote>,<quote>'break'</quote></li>
+								<li class="list-group-item">-> Multiple: <quote>'place,break'</quote>,<quote>'pickup,drop,place'</quote></li>
+								<li class="list-group-item">-> All: <quote>'*'</quote></li>
+								<li class="list-group-item">-> All except: <quote>'*, !place, !break'</quote><i>-> all, except 'place' and 'break'</i></li>
+							</ul>
+							<hr />
+							<b><a href="#actions-data" id="format-data">Actions data</a> can be written:</b><br />
+							<i>(if it's a listable one, like: message, entities, gamemode, material etc.)</i>
+							<ul class="list-group">
+								<li class="list-group-item">-> Single: <quote>entity: 'cow'</quote>,<quote>entity: 'pig'</quote></li>
+								<li class="list-group-item">-> Multiple: <quote>entity: 'cow,pig'</quote>,<quote>entity: 'cow,pig,chicken'</quote></li>
+								<li class="list-group-item">-> Multiple list: 
+<textarea class="form-control" rows="3" style="width: 100px;" readonly>
+entity:
+- 'cow'
+- 'pig'</textarea>
+								</li>
+								<li class="list-group-item">-> All: <quote>entity: '*'</quote></li>
+								<li class="list-group-item">-> All except: <quote>'*, !cow, !pig'</quote><i>-> all, except 'cow' and 'pig'</i></li>
+							</ul>
+						</li>
+					</div>
+					<hr class="m-3" />
+					<div id="actions">
+						<h3>Actions</h3>
+						Here is the list of actions blockable. <br />
+						All actions can have general actions data <i>(like messages, log, cooldown etc.)</i>, <a href="#actions-data">listed at the end.</a><br />
+						Each actions can have custom actions data.
+						<div id="menu">
+							<ul class="list-group">
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-armorstandplace"><h4>Armorstandplace</h4>When the player try to place the item on an armorstand</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>General information:</b><br />
+			- Available only on Mc1.8+
+		</li>
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to put a diamond chestplate on an armorstand":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_chesplate:
+	  armorstandplace: '&cYou can not put diamond chestplate on an armorstand.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_chestplate.armorstandplace</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-armorstandtake"><h4>Armorstandtake</h4>When the player try to take an item from an armorstand</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>General information:</b><br />
+			- Available only on Mc1.8+
+		</li>
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to take diamonds from an armorstand":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond:
+      armorstandtake: '&cYou can not take diamonds from an armorstand.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond.armorstandtake</quote>
+		</li>
+	</ul>
+</li>	
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-attack"><h4>Attack</h4>When the player use left click with the item in the main hand on an entity</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to attack with a diamond sword":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_sword:
+      attack: '&cYou can not attack with this sword.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_sword.attack.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('entity', '#action-attack');" href="#actions-attack">entity</a> <i>-> the entity attacked</i><br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to attack with a diamond sword <u>a cow</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_sword:
+      attack:
+        message: '&cYou can not attack a cow with this sword.'
+        entity: cow</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_sword.attack.cow</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-bookedit"><h4>Bookedit</h4>When the player edits or signs a book and quill item</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			The material name '<b>item</b>' <i>(variable above)</i> varies depending your minecraft version: <br />
+			- '<i>writable_book</i>' on MC >= 1.13<br />
+			- '<i>book_and_quill</i>' otherwise<br />
+		</li>
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to edit or sign a book and quill":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    item: # depending your minecraft version
+      bookedit: '&cYou can not save or edit books.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.item.bookedit</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-break"><h4>Break</h4>When the item <i>(placed)</i> is breaked</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to break a diamond ore":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_ore:
+      break: '&cYou can not break a diamond ore.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_ore.break.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('material', '#action-break');" href="#actions-break">material</a> <i>-> the material in player's hand, with which the block is breaked</i><br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to break a diamond ore <u>with a golden sword</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_ore:
+      break:
+        message: '&cYou can not break a diamond ore with a golden sword.'
+        material: golden_sword</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_ore.break.golden_sword</quote>
+			<br />
+			<hr />
+			You can create powerfull combinations, for example:<br />
+			"Players should not be able to break a diamond ore <u>if they do not have a diamond pickaxe in hand</u>":<br /> 
+			<quote>material: '*, !diamond_pickaxe'</quote><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-brew"><h4>Brew</h4>When the item <i>(potion)</i> is brewed inside a brewing stand</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			As the potions items have metadata, you will have to save the said potion using the <a href="#custom-items">custom items</a> command.<br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to brew a speed potion":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    mySpeedPotion:
+      brew: '&cYou can not brew this potion.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.myspeedpotion.brew</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-click"><h4>Click</h4>When the player use left click with the item in the main hand</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			If the left click occurs on an entity, you'll need the <a href="#action-attack">attack</a> action instead.<br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to left click with a diamond pickaxe":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_pickaxe:
+	  click: '&cYou can not left click with a diamond pickaxe.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_pickaxe.click.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('material', '#action-click');" href="#actions-click">material</a> <i>-> the block left clicked, if one is clicked</i><br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to left click with a diamond pickaxe <u>on a sugar cane</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_pickaxe:
+      click:
+        message: '&cYou can not destroy sugar cane with a diamond pickaxe.'
+        material: sugar_cane</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_pickaxe.click.sugar_cane</quote><br /><hr />
+			You can create powerfull combinations, for example:<br />
+			"The diamond pickaxe should be useable only on diamond ores":<br /> 
+			<quote>material: '*, !diamond_ore'</quote><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-consume"><h4>Consume</h4>When the player try to consume a food/potion..</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to consume apple":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    apple:
+	  consume: '&cYou can not eat an apple.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.apple.consume</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-craft"><h4>Craft</h4>The item will not be craftable anymore</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to craft a diamond pickaxe":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_pickaxe:
+	  craft: '&cYou can not craft a diamond pickaxe.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_pickaxe.craft</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-delete"><h4>Delete</h4>When a player open & close an inventory, it will check and delete items which have this action</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Diamonds should be deleted from players inventory":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond:
+	  delete: '&cDiamonds are banned.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond.delete</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-dispense"><h4>Dispense</h4>When an item is dispensed from a block</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Diamonds should not be dispensed":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond:
+	  dispense: '&cDiamonds can not be dispensed.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond.dispense</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-drop"><h4>Drop</h4>When an item is dropped by a player</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to drop diamonds":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond:
+	  drop: '&cYou can not drop diamonds.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond.drop</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-drops"><h4>Drops</h4>When an item is dropped from a block</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Dirt should not be dropped by a block":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    dirt:
+	  drops: '&cDirt can not be dropped.'</textarea><br />
+		Bypass permission: <quote>banitem.bypass.world.dirt.drops.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('material', '#action-drops');" href="#actions-drops">material</a> <i>-> the material in player's hand, with which the block is breaked</i><br />
+			<b>Example config/permission:</b><br />
+			"Dirt should not be dropped by a block <u>if player has a golden shovel</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    dirt:
+      drops:
+        message: '&cYou can not drop dirt with a golden shovel.'
+        material: golden_shovel</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.dirt.drops.golden_shovel</quote><br /><hr />
+			You can create powerfull combinations, for example:<br />
+			"Dirt will be dropped only if player has a diamond shovel in hand":<br /> 
+			<quote>material: '*, !diamond_shovel'</quote><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-enchant"><h4>Enchant</h4>When a player try to enchant an item</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Diamond chestplate should not be enchanted with protection 4":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_chestplate:
+	  enchant: 
+	    enchantment: 'protection:4'
+	    message: '&cYou can not enchant diamond chestplate with protection.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_chestplate.enchant.*</quote>
+		</li>
+		<li class="list-group-item">You can a make a list:<br />
+			"Diamond chestplate should not be enchanted with unbreaking 1-3":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_chestplate:
+	  enchant: 
+	    enchantment:
+		  - 'unbreaking:1'
+		  - 'unbreaking:2'
+		  - 'unbreaking:3'
+	    message: '&cYou can not enchant diamond chestplate with unbreaking.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_chestplate.enchant.*</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-entitydrop"><h4>Entitydrop</h4>When an entity dies and drop the item</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Entities should not drop beef":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    beef:
+	  entitydrop: '&cEntities does not drop beef.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.beef.entitydrop.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('entity', '#action-entitydrop');" href="#actions-entitydrop">entity</a> <i>-> the dead entity</i><br />
+			<b>Example config/permission:</b><br />
+			"<u>Cows</u> should not drop beef":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    beef:
+      entitydrop:
+        message: '&cCows does not drop beef.'
+        entity: cow</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.beef.entitydrop.cow</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-entityinteract"><h4>Entityinteract</h4>When a player use right click with the item on an entity</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to use shears on an entity":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    shears:
+	  entityinteract: '&cYou can not use shears on an entity.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.shears.entityinteract.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('entity', '#action-entityinteract');" href="#actions-entityinteract">entity</a> <i>-> the entity right clicked</i><br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to use shears <u>on a sheep</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    shears:
+      entityinteract:
+        message: '&cYou can not use shears on a sheep.'
+        entity: sheep</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.shears.entityinteract.sheep</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-fill"><h4>Fill</h4>When a player use right click with the item on a fluid (water/lava)</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to fill a bucket":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    bucket:
+	  fill: '&cYou can not fill a bucket.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.bucket.fill.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('material', '#action-fill');" href="#actions-fill">material</a> <i>-> the material type of the fluid clicked</i><br />
+			<b>Example config/permission:</b><br />
+				"Players should not be able to fill a bucket <u>with lava</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    bucket:
+      fill:
+        message: '&cYou can not fill a bucket with lava.'
+        material: lava,stationary_lava</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.bucket.fill.lava</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-glide"><h4>Glide</h4>When a player try to use <i>(activate)</i> an elytra</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>General information:</b><br />
+			- Available only on Mc1.9+
+		</li>
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to glide":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    elytra:
+	  glide: '&cYou can not use elytra.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.elytra.glide</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-hangingplace"><h4>Hangingplace</h4>When a player try to place a hanging entity <i>(itemframe, painting..)</i></a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to place an itemframe":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    item_frame:
+	  hangingplace: '&cYou can not place an item frame.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.item_frame.hangingplace.*</quote></li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('entity', '#action-entityinteract');" href="#actions-entityinteract">entity</a> <i>-> the entity created</i><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-hold"><h4>Hold</h4>When a player try hold the item in hand</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to hold a diamond sword":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_sword:
+	  hold: '&cYou can not hold this.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_sword.hold</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-interact"><h4>Interact</h4>When the player use right click with main hand on the placed item</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to right click a stone button":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    stone_button:
+	  interact: '&cYou can not use a stone button.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.stone_button.interact.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('material', '#action-interact');" href="#actions-interact">material</a> <i>-> the material in player's hand</i><br />
+			<b>Example config/permission:</b><br />
+				"Players should not be able to right click a stone button <u>if they have an apple in the hand</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    stone_button:
+      interact:
+        message: '&cYou can not use a stone button with an apple in hand.'
+        material: apple</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.stone_button.interact.apple</quote><br /><hr />
+			You can create powerfull combinations, for example:<br />
+			"Players can use stone button only if they have an apple in hand":<br /> 
+			<quote>material: '*, !apple'</quote><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-inventoryclick"><h4>Inventoryclick</h4>When the player try to click an item in an inventory</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to click on stone in an inventory":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    stone:
+	  inventoryclick: '&cYou can not click this item.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.stone.inventoryclick.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('inventory', '#action-inventoryclick');" href="#actions-inventoryclick">inventory-from</a> <i>-> the inventory type</i><br />
+			<b>Example config/permission:</b><br />
+				"Players should not be able to click on stone in an inventory <u>of type anvil</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    stone:
+      inventoryclick:
+        message: '&cYou can not click this item in an anvil.'
+        inventory-from: anvil</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.stone.inventoryclick.anvil</quote><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-pickup"><h4>Pickup</h4>When the item is picked up</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to pick up diamonds":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond:
+	  pickup: '&cYou can not pick up diamonds.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond.pickup</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-place"><h4>Place</h4>When the player try to place a block</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to place diamond blocks":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_block:
+	  place: '&cYou can not place diamond blocks.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_block.place.*</quote></li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('material', '#action-place');" href="#actions-place">material</a> <i>-> the block on which the item is placed, if a block will be placed by this action</i><br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to place diamond blocks <u>on another diamond block</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_block:
+      place:
+        message: '&cYou can not place diamond blocks on another diamond block.'
+        material: diamond_block</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_block.place.diamond_block</quote><br /><hr />
+			You can create powerfull combinations, for example:<br />
+			"Players can only place diamond blocks on iron blocks":<br /> 
+			<quote>material: '*, !iron_block'</quote><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-rename"><h4>Rename</h4>When the player try to rename the item in an anvil, or from a command</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to rename a diamond sword":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_sword:
+	  rename: '&cYou can not rename this item.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_sword.rename</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-smelt"><h4>Smelt</h4>The item will not be smeltable anymore</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to smelt iron ingots":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    iron_ingot:
+	  smelt: '&cYou can not smelt iron ingots.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.iron_ingot.smelt</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-smith"><h4>Smith</h4>When the recipe of an item is completed inside a smithing table</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>General information:</b><br />
+			- Available only on Mc1.16+
+		</li>
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to create a netherite pickaxe via the smithing table":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    netherite_pickaxe:
+	  smith: '&cYou can not create a netherite pickaxe.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.netherite_pickaxe.smith</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-swap"><h4>Swap</h4>When the player try to swap the item in hands</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to swap diamond sword":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_sword:
+	  swap: '&cYou can not swap with this sword.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_sword.swap</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-transfer"><h4>Transfer</h4>When the player try to transfer the item from an inventory to another</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to transfer diamonds":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond:
+	  transfer: '&cYou can not transfer diamonds.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond.transfer.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b><br />
+			 - <a class="info" onclick="dialog('inventory', '#action-transfer');" href="#actions-transfer">inventory-from</a> <i>-> the <i>(source)</i> inventory, where the item comes from</i><br />
+			 - <a class="info" onclick="dialog('inventory', '#action-transfer');" href="#actions-transfer">inventory-to</a> <i>-> the <i>(destination)</i> inventory, where the item goes</i><br />
+			<b>Example config/permission:</b><br />
+			"Players should not be to put diamonds <u>from their inventory to a chest</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond:
+      transfer:
+        message: '&cYou can not transfer diamonds to chests.'
+        inventory-to: chest</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond.transfer.chest</quote><br /><hr />
+			<b>Example config/permission:</b><br />
+			"Players should not be to take iron ingots <u>from a furnace</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    iron_ingot:
+      transfer:
+        message: '&cYou can not take iron ingots from a furnace.'
+        inventory-from: furnace</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.iron_ingot.transfer.furnace</quote><br /><hr />
+			You can create powerfull combinations, for example:<br />
+			"Players can only put diamonds into its enderchest":<br /> 
+			<quote>inventory-from: 'player'</quote> - <quote>inventory-to: '*, !ender_chest'</quote><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->						
+<a id="action"><li class="list-group-item" id="action-unfill"><h4>Unfill</h4>When a player try to unfill a bucket</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to unfill a bucket":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    bucket:
+	  unfill: '&cYou can not unfill a bucket.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.bucket.unfill.*</quote>
+		</li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('material', '#action-unfill');" href="#actions-unfill">material</a> <i>-> the block type clicked</i><br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to unfill a lava bucket <u>on stone</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    lava_bucket:
+      unfill:
+        message: '&cYou can not unfill a bucket on stone.'
+        material: stone</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.bucket.unfill.stone</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-use"><h4>Use</h4>When the player try use (right click) the item</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<u>&lt;!&gt; For most of situations, you'll need to add <i>use</i> into the <a href="#action-use" class="info" onclick="dialog('priority', '#action-use');">config actions priorities</a> <!></u>
+		</li>
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to use a flint and steel":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    flint_and_steel:
+	  use: '&cYou can not use a flint and steel.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.flint_and_steel.use.*</quote></li>
+		<li class="list-group-item">
+			<b>Special data:</b> <a class="info" onclick="dialog('material', '#action-use');" href="#actions-use">material</a> <i>-> the block on which the item is placed, if a block will be placed by this action</i><br />
+			<b>Example config/permission:</b><br />
+			"Players should not be able to use a flint and steel <u>on stone</u>":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    flint_and_steel:
+      use:
+        message: '&cYou can not use flint and steel on stone.'
+        material: stone</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.flint_and_steel.use.stone</quote><br /><hr />
+			You can create powerfull combinations, for example:<br />
+			"Players can only use flint and steel on dirt":<br /> 
+			<quote>material: '*, !dirt'</quote><br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-wear"><h4>Wear</h4>When the player try to put the item as an armor</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			You would also want to associate this action with the <a href="#action-place">place</a> one, so players can not use right click with the item to wear it.
+			<b>Example config/permission:</b><br />
+			"Players should not be able to wear a diamond chestplate":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_chestplate:
+	  wear: '&cYou can not wear diamond chestplates.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_chestplate.wear.*</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+							</ul>
+						</div>
+					</div>
+					<hr class="m-3" />
+					<div id="actions-data">
+						<h3>Actions Data</h3>
+						The actions data is a complement to the action. It can store additional informations <i>(like the gamemode, a message etc.)</i> for the action.<br />
+						Example synthax: <i>Players can not place diamond block if they are in creative mode</i>
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_block:
+      place:
+        message: '&cYou can not place diamond block while in creative mode.' # action data
+        gamemode: creative # action data</textarea><br />
+						Here is the list of actions data useable.<br />
+						<div id="menu">
+							<ul class="list-group">
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-data-cooldown"><h4>Cooldown</h4>Allow to bypass the action each X milliseconds</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should be able to place a diamond block only each 10 seconds.":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_block:
+	  place:
+	    message: '&cYou have to wait &e{time}&c before replacing a diamond block'
+        cooldown: 10000 # in milliseconds = 10 seconds</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->		
+<a id="action"><li class="list-group-item" id="action-data-gamemode"><h4>Gamemode</h4>Check if the player gamemode matches</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to place a diamond block if they are in creative mode":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_block:
+      place:
+        message: '&cYou can not place a diamond block while in creative mode.'
+        gamemode: creative</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->		
+<a id="action"><li class="list-group-item" id="action-data-log"><h4>Log</h4>Check if the ban should be a warned to players with /bi log activated.</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"If player do this banned action, players with log ON should be warned":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_block:
+      place:
+        message: '&cYou can not place a diamond block.'
+        log: true</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->		
+<a id="action"><li class="list-group-item" id="action-data-message"><h4>Message</h4>A configurable message if the action is banned</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"If player do this banned action, send him message":<br />
+<textarea class="form-control" rows="5" readonly>
+blacklist:
+  world:
+    diamond_block:
+      place:
+        message: '&cYou can not place a diamond block.'</textarea>
+		</li>
+		<li class="list-group-item">
+			You can set multiple messages.<br />
+			<b>Example config/permission:</b><br />
+<textarea class="form-control" rows="7" readonly>
+blacklist:
+  world:
+    diamond_block:
+      place:
+        message: 
+          - '&cYou can not place.'
+          - '&ca diamond block.'</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-data-permission"><h4>Permission</h4>The plugin will only check for the written permission</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>General informations:</b><br />
+			Using this custom permission will override the basic bypass permissions system.<br />
+			For better understanding, the plugin will do the follow:<br /><br />
+			
+			<i>If</i> you have <u>not</u> set a custom permission, the plugin will check all basic bypass permissions:<br />
+			<i>banitem.bypass.&lt;worldName&gt;.&lt;itemName&gt;.&lt;actionName&gt;.&lt;dataName&gt;</i><br />
+			<i>This includes at least 8 permissions checks!</i><br />
+			<i>If</i> you have <u>set</u> a custom permission, the plugin will <u>only</u> check if the player has your custom permission.<br /><br />
+		  
+			In conclusion, I highly recommand you to use this custom permission system, specially if you are making groups <i>(like donators, jobs etc.)</i>.<br />
+			It will be better for <u>you</u> <i>(easier permissions, "groupable" permissions, etc.)</i>, and better for the <u>plugin</u> <i>(faster permission check)</i>.
+		</li>
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players with permission 'mycustom.permission' should be able to pick up diamonds":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond:
+      pickup:
+        message: '&cYou can not pickup diamonds.'
+        permission: 'mycustom.permission'</textarea><br />
+			Result: <br />
+			  - Players without 'mycustom.permission' will not be able to pickup diamonds.<br />
+			  - Players with that permission will be able to pickup diamonds.
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->			
+<a id="action"><li class="list-group-item" id="action-data-region"><h4>Region</h4>Check if the ban should applies into a WorldGuard region.</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to place a diamond block in region 'test'":<br />
+<textarea class="form-control" rows="6" readonly>
+blacklist:
+  world:
+    diamond_block:
+      place:
+        message: '&cYou can not place a diamond block in region test.'
+        region: test</textarea>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->			
+<a id="action"><li class="list-group-item" id="action-data-run"><h4>Run</h4>Run a command when a ban action occurs.</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"The console should run a command when a player break a stone":<br />
+<textarea class="form-control" rows="7" readonly>
+blacklist:
+  world:
+    stone:
+      break:
+        message: '&cYou can not break a stone.'
+        run: 
+          - 'say {player} tried to break a stone!'</textarea><br />
+			You can use 3 arguments: <br />
+			<i>{player}</i>: for player name<br />
+			<i>{world}</i>: for world name<br />
+			<i>{itemname}</i>: for item name<br />
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->							
+							</ul>
+						</div>
+					</div>
+					<div class="dialog" id="better-debug" title="Debug">
+						<p><h4>Errors:</h4>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>boolean</quote>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Default:</b> <quote>true</quote></li>
+								<li class="list-group-item">Display better error messages when trying to load the config file.</li>
+								<li class="list-group-item">If <b>true</b>: <img src="./styles/images/better-debug-true.png" class="img-fluid" /></li>
+								<li class="list-group-item">If <b>false</b>: <img src="./styles/images/better-debug-false.png" class="img-fluid" /></li>
+							</ul>
+						</p>
+						<p><h4>Reload:</h4>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>boolean</quote>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Default:</b> <quote>false</quote></li>
+								<li class="list-group-item">Display more informations when reloading the plugin.</li>
+							</ul>
+						</p>
+						<p><h4>Colors-console:</h4>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>boolean</quote>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Default:</b> <quote>false</quote></li>
+								<li class="list-group-item">If true, the console will try to display colored messages.</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="no-permission" title="no-permission">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>String</quote>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Default:</b> <quote>&cYou do not have permission</quote></li>
+								<li class="list-group-item">The no-permission message send to a player which try to use the ban item command.</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="prefix" title="prefix">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>String</quote>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Default:</b> <quote>&c&l[&e&lBanItem&c&l] </quote></li>
+								<li class="list-group-item">The plugin prefix to displays in chat/console.</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="api" title="api">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>boolean</quote>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Default:</b> <quote>false</quote></li>
+								<li class="list-group-item"><b>playerbanitemevent</b> - will be called whenever an action should be banned</li>
+								<li class="list-group-item"><b>deletebanneditemevent</b> - will be called whenever an item should be deleted by the plugin.</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="check-update" title="check-update">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>boolean</quote>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Default:</b> <quote>true</quote></li>
+								<li class="list-group-item">If true, the plugin will check <b>async</b>, when the server loads, if there is a new update.</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="priority" title="priority">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>String/List of ban actions</quote>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Default:</b> <quote>use,consume</quote></li>
+								<li class="list-group-item">List of actions that should have maximum listening priority. <br />
+															Giving maximum priority will force the ban item plugin to have the final word on an event.<br />
+															This is used mainly to also block other plugins events, if the action is banned.</li>
+								<li class="list-group-item">You can use the <a href="#format">format</a> synthax.</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="config-actions" title="actions">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item">This is a section where you can configure some specifics informations usefull for the ban actions:</li>
+								<li class="list-group-item">
+									<ul class="list-group">
+										<li class="list-group-item"><b>enchant</b>: a configurable ItemStack. <br />
+											<i>This configurable ItemStack will be displayed in an anvil if the player can not enchant the item.</i></li>
+										<li class="list-group-item"><b>rename</b>: list of rename commands which a player can use to rename an item. <br />
+											<i>This is needed for the plugin to check if a player try to rename a banned item with a command.</i></li>
+										<li class="list-group-item"><b>transfer</b>: section containing some configurable data for the transfer action:<br />
+											- hoppers-block: <i>also blocks hoppers to take/give banned item from/to inventories</i>
+										</i></li>
+										<li class="list-group-item"><b>wear</b>: section containing some configurable data for the wear action:<br />
+											- region-check: <i>if the plugin should check for players armor when it enter or exit a WorldGuard region</i><br />
+											- scanner: <i>if the plugin should check each seconds async if the player wear a banned item</i><br />
+										</i></li>
+										<li class="list-group-item"><b>delete</b>: contains a list of string 'ignored-inventories-titles'.<br />
+											<i>The plugin will not take in consideration inventories which name is in this list. <br />
+											Do not use color codes, as the plugin automatically strip GUIs title colors.</i>
+										</i></li>
+									</ul>
+								</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="hooks" title="hooks">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item">Contains list of configurable hooks:</li>
+								<li class="list-group-item">
+									<ul class="list-group">
+										<li class="list-group-item">advancedenchantments: if the plugin should hook with <a href="https://www.spigotmc.org/resources/1-8-1-17-1-%E2%AD%95-advancedenchantments-%E2%AD%90-450-custom-enchants-%E2%AD%90create-custom-enchantments-%E2%9C%85-30-sale.43058/" target="_blank">AdvancedEnchantments</a> or not <i>(v8+)</i></li>
+										<li class="list-group-item">itemsadder: if the plugin should hook with <a href="https://www.spigotmc.org/resources/%E2%9C%85must-have%E2%9C%85-itemsadder%E2%9C%A8custom-items-huds-guis-mobs-3dmodels-emojis-blocks-wings-hats-liquids.73355/" target="_blank">ItemsAdder</a> or not <i>(v2+)</i></li>
+										<li class="list-group-item">worldguard: if the plugin should hook with worldguard or not <i>(Worldguard 6 or 7)</i></li>
+									</ul>
+								</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="entity" title="entity">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>List of <a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html" target="_blank">EntityType</a></quote></li>
+								<li class="list-group-item">List of entity which the ban should be applied.</li>
+								<li class="list-group-item">You can use the <a href="#format-data">format</a> synthax.</li>
+								<li class="list-group-item">You can get a correct list of entities for your current minecraft version with <quote>/banitem help entities</quote></li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="material" title="material">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>List of <a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html" target="_blank">Material</a></quote></li>
+								<li class="list-group-item">List of material which the ban should be applied.</li>
+								<li class="list-group-item">You can use the <a href="#format-data">format</a> synthax.</li>
+								<li class="list-group-item">You can get the correct material name with <quote>/banitem info</quote></li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="inventory" title="inventory">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item"><b>Type:</b> <quote>List of <a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/inventory/InventoryType.html" target="_blank">InventoryType</a></quote></li>
+								<li class="list-group-item">List of inventories which the ban should be applied.</li>
+								<li class="list-group-item">You can use the <a href="#format-data">format</a> synthax.</li>
+								<li class="list-group-item">You can get a correct list of inventory names for your current minecraft version with <quote>/banitem help inventories</quote></li>
+							</ul>
+						</p>
+					</div>
+				</div>
+			</section>
+		</div>
+		<script src="./styles/js/jquery-3.4.0.min.js"></script>
+		<script src="./styles/js/jquery-ui.min.js"></script>
+		<script src="./styles/js/bootstrap.min.js"></script>
+		<script src="./styles/js/custom.min.js"></script>
+	</body>
+</html>
