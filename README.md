@@ -1,4 +1,4 @@
-# BanItem Documentation ![GPL-3.0](http://cdn.andross.fr/badges/license.svg) ![Stable](http://cdn.andross.fr/badges/stable.svg) ![Version](https://badgen.net/badge/version/3.3.3/blue) ![Discord](http://cdn.andross.fr/badges/discord.svg)
+# BanItem ![GPL-3.0](http://cdn.andross.fr/badges/license.svg) ![Stable](http://cdn.andross.fr/badges/stable.svg) ![Version](https://badgen.net/badge/version/3.4/blue) ![Discord](http://cdn.andross.fr/badges/discord.svg)
 
 ### Description
 Lightweight, powerful & configurable per world ban item plugin
@@ -27,12 +27,10 @@ Lightweight, powerful & configurable per world ban item plugin
 <dependency>
   <groupId>fr.andross.banitem</groupId>
   <artifactId>BanItemPlugin</artifactId>
-  <version>3.3.3</version>
+  <version>3.4</version>
   <scope>provided</scope>
 </dependency>
 ```
-
-For any questions/suggestions: PM me on spigot or on discord (Andross#5254).
 
 # Get the API
 ```// Get the BanItemAPI: the correct way:
@@ -55,5 +53,5 @@ final BanItemAPI banItemApi = BanItem.getInstance().getApi();
 * [Bukkit page](https://dev.bukkit.org/projects/banitem-reloaded)
 * [Documentation](https://banitem.andross.fr/)
 
-For any bug/suggestions: `Andross#5254`
+For any questions/suggestions: PM me on spigot or on discord (Andross#5254).
 

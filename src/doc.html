@@ -50,7 +50,7 @@
 			<section class="p-3 p-lg-5 d-flex align-items-center">
 				<div class="w-100">
 					<h2>Documentation</h2><br />
-					<i>Last update: 17.10.2021</i>
+					<i>Last update: 13.07.2022</i>
 					<hr class="m-0" />
 					<div id="config">
 						<h3>Config.yml</h3><b>Click on a variable to get more info</b><br />
@@ -59,7 +59,7 @@
 <pre style="text-align:left; line-height: 150%; ">
 <span style="color: #008800; font-style: italic"># +———————————————————————————————————————————————————+ #</span>
 <span style="color: #008800; font-style: italic"># |——————————     BANITEM CONFIGURATION     ——————————| #</span>
-<span style="color: #008800; font-style: italic"># |——————————————————      v3.3      —————————————————| #</span>
+<span style="color: #008800; font-style: italic"># |——————————————————      v3.4      —————————————————| #</span>
 <span style="color: #008800; font-style: italic"># +———————————————————————————————————————————————————+ #</span>
 <span style="color: #008800; font-style: italic"># |                   Documentation:                  | #</span>
 <span style="color: #008800; font-style: italic"># |             https://banitem.andross.fr/           | #</span>
@@ -97,6 +97,10 @@
   <span style="color:#000080">advancedenchantments:</span> <span style="color:#0000FF">false</span>
   <span style="color:#000080">itemsadder:</span> <span style="color:#0000FF">false</span>
   <span style="color:#000080">worldguard:</span> <span style="color:#0000FF">false</span></a>
+<a class="info" onclick="dialog('illegal-stacks', '#config');"><span style="color:#000080">illegal-stacks:</span>
+  <span style="color:#000080">enabled:</span> <span style="color:#0000FF">false</span>
+  <span style="color:#000080">vanilla-max-stack-size:</span> <span style="color:#0000FF">true</span>
+  <span style="color:#000080">block-type:</span> <span style="color:#0000FF">split</span>
 </pre>
 </div>
 					</div>
@@ -258,6 +262,24 @@ blacklist:
 											</li>
 											<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>Metadata</h4>List of metadata configurable</a>
 												<ul class="list-group" style="display:none;">
+<!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>attribute</h4>If the items contains an attribute modifier</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">You can use '<i>ATTRIBUTE</i>': any items with this attribute</li>
+		<li class="list-group-item">You can use '<i>ATTRIBUTE:Level</i>': equals to level</li>
+		<li class="list-group-item">You can use '<i>ATTRIBUTE:>Level</i>': higher than level</li>
+		<li class="list-group-item">You can use '<i>ATTRIBUTE:&lt;Level</i>': lower than level</li>
+		<li class="list-group-item">You can use '<i>ATTRIBUTE:Min:Max</i>': between min and max</li>
+		<li class="list-group-item">List of usable attributes: <a href="https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/attribute/Attribute.html">Attribute</a></li>
+		<li class="list-group-item"><b>Example config/permission:</b><br />
+			"The item should have a GENERIC_ATTACK_DAMAGE higher than 5 and a GENERIC_ATTACK_KNOCKBACK no matter the level":<br />
+<textarea class="form-control" rows="3" readonly>
+customItemName:
+  material: diamond_sword # whatever
+  attribute: 'GENERIC_ATTACK_DAMAGE:>5,GENERIC_ATTACK_KNOCKBACK'</textarea>
+		</li>
+	</ul>
+</li>
 <!-------------------------------------------------------------------------------------------------------------------->
 <a id="action"><li class="list-group-item" id="customitems-info-metadata"><h4>displayname-equals</h4>If the displayname of the item is equals to the String</a>
 	<ul class="list-group" style="display:none;">
@@ -1027,6 +1049,21 @@ blacklist:
 	</ul>
 </li>
 <!-------------------------------------------------------------------------------------------------------------------->
+<a id="action"><li class="list-group-item" id="action-mending"><h4>Mending</h4>when the player has an item repaired via the mending enchantment</a>
+	<ul class="list-group" style="display:none;">
+		<li class="list-group-item">
+			<b>Example config/permission:</b><br />
+			"Players should not be able to repair a diamond sword with mending":<br />
+<textarea class="form-control" rows="4" readonly>
+blacklist:
+  world:
+    diamond_sword:
+	  mending: '&cYour diamond sword can not be repaired with mending.'</textarea><br />
+			Bypass permission: <quote>banitem.bypass.world.diamond_sword.mending</quote>
+		</li>
+	</ul>
+</li>
+<!-------------------------------------------------------------------------------------------------------------------->
 <a id="action"><li class="list-group-item" id="action-pickup"><h4>Pickup</h4>When the item is picked up</a>
 	<ul class="list-group" style="display:none;">
 		<li class="list-group-item">
@@ -1523,6 +1560,35 @@ blacklist:
 										<li class="list-group-item">advancedenchantments: if the plugin should hook with <a href="https://www.spigotmc.org/resources/1-8-1-17-1-%E2%AD%95-advancedenchantments-%E2%AD%90-450-custom-enchants-%E2%AD%90create-custom-enchantments-%E2%9C%85-30-sale.43058/" target="_blank">AdvancedEnchantments</a> or not <i>(v8+)</i></li>
 										<li class="list-group-item">itemsadder: if the plugin should hook with <a href="https://www.spigotmc.org/resources/%E2%9C%85must-have%E2%9C%85-itemsadder%E2%9C%A8custom-items-huds-guis-mobs-3dmodels-emojis-blocks-wings-hats-liquids.73355/" target="_blank">ItemsAdder</a> or not <i>(v2+)</i></li>
 										<li class="list-group-item">worldguard: if the plugin should hook with worldguard or not <i>(Worldguard 6 or 7)</i></li>
+									</ul>
+								</li>
+							</ul>
+						</p>
+					</div>
+					<div class="dialog" id="illegal-stacks" title="illegal-stacks">
+						<p>
+							<ul class="list-group">
+								<li class="list-group-item">This (async) scanner will check if the max stack size of items inside players inventories are respected.</li>
+								<li class="list-group-item">
+									<ul class="list-group">
+										<li class="list-group-item"><quote>enabled</quote> <i>true/false</i> - if this scanner should be enabled</li>
+										<li class="list-group-item"><quote>vanilla-max-stack-size</quote> <i>true/false</i> - if the default max stack size for all items should be used</li>
+										<li class="list-group-item"><quote>block-type</quote> - specify what will happen to the illegal stack
+											<ul class="list-group">
+												<li class="list-group-item"><quote>split</quote> - to split and give items back until the correct max stack is respected<br />
+													<i>Example: 1 item representing 2 diamonds helmet -> 2 items 1 diamond helmet</i></li>
+												<li class="list-group-item"><quote>delete</quote> - to delete the whole stack<br />
+													<i>Example: 1 item representing 64 diamonds helmets -> 0 item</i></li>
+												<li class="list-group-item"><quote>deletemore</quote> - to delete only the exceeded amount<br />
+													<i>Example: 1 item representing 64 diamonds helmets -> 1 item 1 diamond helmet</i></li>
+											</ul>
+										</li>
+										<li class="list-group-item"><quote>items</quote> - contains a list of configurable max stack amount PER item<br />
+											<ul class="list-group">
+												<li class="list-group-item">You can write as many materials as you want and you can use the <a href="#format-items">items format</a></li>
+												<li class="list-group-item">If you have set <i>vanilla-max-stack-size</i> to true then the configurated item will be used</li>
+											</ul>
+										</li>
 									</ul>
 								</li>
 							</ul>
